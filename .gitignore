@@ -1,3 +1,34 @@
+# Java
 JavaDL
+# NodeJS
 node_modules
+# Minecraft
+server/cache
+server/libraries
+server/logs
+server/plugins
+server/versions
+server/world
+server/world_nether
+server/world_the_end
+server/.console_history
+server/banned-ips.json
+server/banned-players.json
+server/ops.json
+server/usercache.json
+server/version_history.yml
+server/whitelist.json
+# Bukkit/Spigot/Paper
+server/version_history.yml
+server/bukkit.yml
+server/spigot.yml
+server/commands.yml
+server/help.yml
+server/paper.yml
+server/permissions.yml
+server/pufferfish.yml
+# Purpur
 server/Purpur.jar
+server/purpur.yml
+# Other
+server/wepif.yml
