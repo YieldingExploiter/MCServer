@@ -1,4 +1,5 @@
 #!/bin/sh
+set -e
 LibArchive=$(pwd)/libarchive
 BSDTarLocation=$LibArchive/bsdtar
 chmod +x $BSDTarLocation
@@ -63,6 +64,17 @@ if [ ! -d plugins ]; then
 
   cd ..
 fi
-echo "Starting Purpur..."
-../JavaDL/Java/bin/java -Xmx4G -Xmn4G -jar Purpur.jar
-cd ..
+if [ "$NGROK_KEY" ]; then
+	echo "Found NGROK_KEY environment variable. Purpur will run in a seperate thread, and ngrok will run in the foreground using NGROK_KEY as the key."
+	echo "Sleeping for 3 seconds..."
+	sleep 3
+	echo "Starting Purpur..."
+	../JavaDL/Java/bin/java -Xmx2G -Xmn2G -jar Purpur.jar >/dev/null &
+	echo "Starting ngrok using key..."
+	chmod +x ../ngrok
+	../ngrok authtoken $NGROK_KEY
+	../ngrok tcp 25565
+else
+	echo "Starting Purpur..."
+	../JavaDL/Java/bin/java -Xmx2G -Xmn2G -jar Purpur.jar >/dev/null &
+fi;
