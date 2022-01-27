@@ -6,6 +6,9 @@ It downloads the latest purpur version on initial run. To update your purpur ver
 
 [![Run in Replit](https://repl.it/badge/github/YieldingExploiter/MCServer)](https://repl.it/github/YieldingExploiter/MCServer)
 
+## NGROK
+To use NGROK (required for replit to not commit die on itself), define the global `NGROK_KEY` as your ngrok key
+
 ## NOTICE
 
 By using this, you accept the ToS and Privacy Policy of [Adoptium.net](https://adoptium.net/index.html).<br/>
