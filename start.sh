@@ -70,6 +70,14 @@ if [ "$NGROK_KEY" ]; then
 	sleep 3
 	echo "Starting Purpur..."
 	../JavaDL/Java/bin/java -Xmx2G -Xmn2G -jar Purpur.jar >/dev/null &
+	if [ ! -f ../ngrok ]; then
+		echo "Downloading ngrok..."
+		curl --output ngrok.tgz https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.tgz --silent
+		echo "Extracting ngrok..."
+		tar -xvzf ngrok.tgz
+		echo "Cleaning up..."
+		rm ngrok.tgz
+	fi;
 	echo "Starting ngrok using key..."
 	chmod +x ../ngrok
 	../ngrok authtoken $NGROK_KEY
